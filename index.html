@@ -18,124 +18,135 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/x-icon" href="./assets/favicon.ico?v1.1" />
     </head>
-    <body>
-        <nav class="navbar navbar-inverse">
-            <div class="container">
-                <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12 col-centered">
-                    <a href=".">
-                        <img src="./assets/img/cflogo.png?v1.1" alt="logo" />
-                        <h1>اینترنت برای همه؛ یا هیچ‌کس!</h1>
-                    </a>
-                </div>
-            </div>
-        </nav>
-        <div class="clearfix"></div>
+<body>
+    <nav class="navbar navbar-inverse">
         <div class="container">
             <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12 col-centered">
-                <ul class="nav nav-tabs">
-
-                    </li>
-                    <li class="pull-left">
-                        <a href="https://github.com/3yed-61">تماس‌باما</a>
-                    </li>
-                </ul>
+                <a href=".">
+                    <img src="./assets/img/cflogo.png?v1.1" alt="Cloudflare Logo" />
+                    <h1>اینترنت برای همه؛ یا هیچ‌کس!</h1>
+                </a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="clearfix"></div>
+    
+    <div class="container">
+        <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12 col-centered">
+            <ul class="nav nav-tabs">
+                <li class="pull-left">
+                    <a href="https://github.com/3yed-61">تماس‌باما</a>
+                </li>
+            </ul>
+            
+            <div class="clearfix"></div>
+            
+            <div class="alert alert-warning" id="alert">
+                <p>برای شروع عملیات اسکن روی اینترنت <b id="providerName"></b> باید تعداد آی‌پی و سرعت موردنظر برای هرمرتبه جستجو را مشخص نمایید. 
+                <em id="proxyChecker">علاوه‌براین، باید قندشکن شما خاموش باشد.</em></p>
+            </div>
+            
+            <div class="clearfix"></div>
+            
+            <select id="ranges" class="form-control dirLeft" multiple>
+                <option value="all" selected>همه رنج‌ها</option>
+            </select>
+            
+            <div class="betaVersion rangeSelector">
+                <input type="radio" name="forProvider" id="forMci" value="1" />
+                <label for="forMci"><small>رنج‌های متداول</small> همراه‌اول</label>
+                
                 <div class="clearfix"></div>
-                <div class="alert alert-warning" id="alert">
-                    <p>برای شروع عملیات اسکن روی اینترنت <b id="providerName"></b> باید تعداد آی‌پی و سرعت موردنظر برای هرمرتبه جستجو را مشخص نمایید. <em id="proxyChecker">علاوه‌براین، باید قندشکن شما خاموش باشد.</em></p>
-                </div>
-                <div class="clearfix"></div>
-                <select id="ranges" class="form-control dirLeft" multiple>
-                    <option value="all" selected>همه رنج‌ها</option>
-                </select>
-                <div class="betaVersion rangeSelector">
-                    <input type="radio" name="forProvider" id="forMci" value="1" />
-                    <label for="forMci"><small>رنج‌های متداول</small> همراه‌اول</label>
-                    <div class="clearfix"></div>
-                    <input type="radio" name="forProvider" id="forMtn" value="1" />
-                    <label for="forMtn"><small>رنج‌های متداول</small> ایرانسل</label>
-                    <!--<div class="clearfix"></div>
-                    <input type="radio" name="forProvider" id="forWarp" value="1" />
-                    <label for="forWarp"><small>رنج‌های متداول</small> Warp</label>-->
-                </div>
-                <div class="input-group scanner">
-                    <input id="download-num" type="number" min="5" max="100" value="10" class="form-control dirLeft" />
-                    <span class="input-group-addon" data-toggle="tooltip" data-trigger="hover" data-placement="top" title="دفعات تلاش برای یافتن آی‌پی با حداکثر پینگ موردنظر">
-                        <small>تلاش با حداکثر پینگ</small>
-                    </span>
-                    <input id="max-ping" type="number" min="100" max="3000" step="100" value="1000" class="form-control dirLeft" />
-                    <div class="input-group-btn">
-                        <div class="btn-group">
-                            <button id="scanBtn" onclick="startScan()" class="btn btn-info prmScan" disabled>اسکن</button>
-                            <div class="btn-group scanOpt">
-                                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" id="newScan" disabled>
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="javascript:;" onclick="newScan();">اسکن تازه</a></li>
-                                </ul>
-                            </div>
+                
+                <input type="radio" name="forProvider" id="forMtn" value="1" />
+                <label for="forMtn"><small>رنج‌های متداول</small> ایرانسل</label>
+            </div>
+            
+            <div class="input-group scanner">
+                <input id="download-num" type="number" min="5" max="100" value="10" class="form-control dirLeft" />
+                <span class="input-group-addon" data-toggle="tooltip" data-trigger="hover" data-placement="top" title="دفعات تلاش برای یافتن آی‌پی با حداکثر پینگ موردنظر">
+                    <small>تلاش با حداکثر پینگ</small>
+                </span>
+                <input id="max-ping" type="number" min="100" max="3000" step="100" value="1000" class="form-control dirLeft" />
+                <div class="input-group-btn">
+                    <div class="btn-group">
+                        <button id="scanBtn" onclick="startScan()" class="btn btn-info prmScan" disabled>اسکن</button>
+                        <div class="btn-group scanOpt">
+                            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" id="newScan" disabled>
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="javascript:;" onclick="newScan();">اسکن تازه</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-                <div class="betaVersion">
-                    <input type="checkbox" id="random" value="1" checked />
-                    <label for="random">اسکن بین رنج‌ها به‌صورت رندوم</label>
-                    <div class="clearfix"></div>
-                    <input type="checkbox" id="beta" value="1" />
-                    <label for="beta">اسکن بر روی حالت آزمایشی</label>
+            </div>
+            
+            <div class="betaVersion">
+                <input type="checkbox" id="random" value="1" checked />
+                <label for="random">اسکن بین رنج‌ها به‌صورت رندوم</label>
+                
+                <div class="clearfix"></div>
+                
+                <input type="checkbox" id="beta" value="1" />
+                <label for="beta">اسکن بر روی حالت آزمایشی</label>
+            </div>
+            
+            <div class="hidden" id="tableResults">
+                <div class="clearfix"></div>
+                <hr>
+                <div class="progress" id="progressBar">
+                    <div class="progress-bar progress-bar-striped active" role="progressbar"></div>
                 </div>
-                <div class="hidden" id="tableResults">
-                    <div class="clearfix"></div>
-                    <hr>
-                    <div class="progress" id="progressBar">
-                        <div class="progress-bar progress-bar-striped active" role="progressbar"></div>
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead>
+                <div class="clearfix"></div>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
                             <tr>
                                 <th>#</th>
                                 <th>آی‌پی</th>
                                 <th>تاخیر</th>
                             </tr>
-                            </thead>
-                            <tbody id="result"></tbody>
-                        </table>
-                    </div>
+                        </thead>
+                        <tbody id="result"></tbody>
+                    </table>
                 </div>
-                <div class="clearfix"></div>
-                <div class="alert alert-info text-center hidden" id="process">
-                    درحال تست
-                    <span id="test-no" dir="ltr"></span>
-                    بر روی
-                    <span id="ip-no" dir="ltr"></span>
-                    <span id="ip-try"></span>
-                </div>
-                <div class="alert alert-success text-center hidden" id="download-text"></div>
-                <div class="alert alert-info text-right suggestion hidden" id="suggestion"></div>
-                <br>
-                <footer>
-                    <p class="text-center">
-                        © شخصی‌سازی توسط
-                        <a href="https://3yed-61.github.io/scanner" target="_blank">3yed</a>
-
-                    </p>
-                    <script>
-                        let siteUrl = document.location.href;
-                        window.addEventListener('load', function() {
-                            getRanges();
-                            getMyIp();
-                        });
-                    </script>
-                    <!--<div class="text-center">
-                        <a href="#" class="btn btn-link btn-normal btn-lg btn-outline donateLink" data-toggle="modal" data-target="#donate">☕</a>
-                    </div>-->
-                    <script src="./assets/js/jquery.min.js?v3.6.4"></script>
-                    <script src="./assets/js/bootstrap.min.js"></script>
-                    <script src="./assets/js/script.js?v1.15.1"></script>
-                </footer>
             </div>
+            
+            <div class="clearfix"></div>
+            
+            <div class="alert alert-info text-center hidden" id="process">
+                درحال تست 
+                <span id="test-no" dir="ltr"></span> 
+                بر روی 
+                <span id="ip-no" dir="ltr"></span> 
+                <span id="ip-try"></span>
+            </div>
+            
+            <div class="alert alert-success text-center hidden" id="download-text"></div>
+            <div class="alert alert-info text-right suggestion hidden" id="suggestion"></div>
+            <br>
+            
+            <footer>
+                <p class="text-center">© شخصی‌سازی توسط 
+                    <a href="https://3yed-61.github.io/scanner" target="_blank">3yed</a>
+                </p>
+            </footer>
         </div>
-    </body>
+    </div>
+
+    <script>
+        let siteUrl = document.location.href;
+        window.addEventListener('load', function() {
+            getRanges();
+            getMyIp();
+        });
+    </script>
+    
+    <script src="./assets/js/jquery.min.js?v3.6.4"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/js/script.js?v1.15.1"></script>
+</body>
 </html>
